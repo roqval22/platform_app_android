@@ -19,6 +19,9 @@ captures/
 .cxx/
 cmake-build-*/
 
+# Gradle Daemon jvm properties
+gradle/gradle-daemon-jvm.properties
+
 # Secretos y claves (Seguridad)
 *.jks
 *.keystore
@@ -31,6 +34,3 @@ desktop.ini
 
 # Logs
 *.log
-
-# Scripts de ayuda locales (opcional)
-# Si quieres que setup_app.ps1 se suba para que otros lo usen, no lo incluyas aquí.
