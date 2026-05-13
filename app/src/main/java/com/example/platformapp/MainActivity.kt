@@ -15,6 +15,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.platformapp.core.cfg.AppCfg
+import com.example.platformapp.ui.home.HomeScreen
 import com.example.platformapp.ui.login.LoginScreen
 import com.example.platformapp.ui.login.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -33,7 +34,12 @@ class MainActivity : ComponentActivity() {
                     var isLoggedIn by remember { mutableStateOf(viewModel.isUserLoggedIn) }
 
                     if (isLoggedIn) {
-                        Greeting("Logueado en: ${AppCfg.APP_NAME}")
+                        HomeScreen(
+                            onLogout = {
+                                viewModel.logout()
+                                isLoggedIn = false
+                            }
+                        )
                     } else {
                         LoginScreen(
                             viewModel = viewModel,

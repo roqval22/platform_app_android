@@ -3,6 +3,7 @@ package com.example.platformapp.data.repository
 import com.example.platformapp.core.Resource
 import com.example.platformapp.domain.repository.AuthRepository
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.tasks.await
@@ -19,6 +20,17 @@ class AuthRepositoryImpl @Inject constructor(
             emit(Resource.Success(true))
         } catch (e: Exception) {
             emit(Resource.Error(e.localizedMessage ?: "Error desconocido"))
+        }
+    }
+
+    override fun signInWithGoogle(idToken: String): Flow<Resource<Boolean>> = flow {
+        emit(Resource.Loading())
+        try {
+            val credential = GoogleAuthProvider.getCredential(idToken, null)
+            firebaseAuth.signInWithCredential(credential).await()
+            emit(Resource.Success(true))
+        } catch (e: Exception) {
+            emit(Resource.Error(e.localizedMessage ?: "Error al autenticar con Google"))
         }
     }
 

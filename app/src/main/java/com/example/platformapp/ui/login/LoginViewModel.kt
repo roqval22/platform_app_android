@@ -26,6 +26,18 @@ class LoginViewModel @Inject constructor(
         }
     }
 
+    fun signInWithGoogle(idToken: String) {
+        viewModelScope.launch {
+            repository.signInWithGoogle(idToken).collect { result ->
+                _loginState.value = result
+            }
+        }
+    }
+
+    fun logout() {
+        repository.logout()
+    }
+
     val isUserLoggedIn: Boolean
         get() = repository.isUserLoggedIn
 }
