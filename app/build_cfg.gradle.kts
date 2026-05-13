@@ -1,0 +1,7 @@
+// CONFIGURACIÓN MAESTRA DE COMPILACIÓN (Build Macros)
+val appId by extra("com.example.platformapp")
+val appVersionCode by extra(1)
+val appVersionName by extra("1.0.0")
+val compileSdkVal by extra(34)
+val minSdkVal by extra(24)
+val targetSdkVal by extra(34)

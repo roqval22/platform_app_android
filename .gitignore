@@ -1,0 +1,36 @@
+# Archivos de construcción (Gradle)
+.gradle/
+build/
+app/build/
+*.apk
+*.bundle
+
+# Archivos de configuración local (IMPORTANTE: No subir estos)
+local.properties
+.DS_Store
+
+# Archivos de Android Studio / IDE
+.idea/
+*.iml
+*.iws
+.navigation/
+captures/
+.externalNativeBuild/
+.cxx/
+cmake-build-*/
+
+# Secretos y claves (Seguridad)
+*.jks
+*.keystore
+*.p12
+google-services.json
+
+# Archivos generados por el sistema
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# Scripts de ayuda locales (opcional)
+# Si quieres que setup_app.ps1 se suba para que otros lo usen, no lo incluyas aquí.
