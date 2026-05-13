@@ -16,7 +16,7 @@ Write-Host "--- Configurando nueva App: $AppName ($AppId) ---" -ForegroundColor 
 
 # 1. Actualizar build_cfg.gradle.kts
 $buildCfgPath = "app/build_cfg.gradle.kts"
-(Get-Content $buildCfgPath) -replace 'project.extra.set\("app_id", ".*"\)', "project.extra.set(`"app_id`", `"$AppId`")" | Set-Content $buildCfgPath
+(Get-Content $buildCfgPath) -replace 'val appId by extra\(".*"\)', "val appId by extra(`"$AppId`")" | Set-Content $buildCfgPath
 Write-Host "[OK] build_cfg.gradle.kts actualizado."
 
 # 2. Actualizar AppCfg.kt
