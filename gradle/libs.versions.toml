@@ -10,7 +10,7 @@ activityCompose = "1.8.2"
 composeBom = "2024.04.00"
 googleServices = "4.4.1"
 firebaseBom = "32.8.1"
-hilt = "2.44"
+hilt = "2.51.1"
 hiltNavigationCompose = "1.2.0"
 
 [libraries]
